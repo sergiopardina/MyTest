@@ -18,6 +18,6 @@ class Category extends Model
      */
     public function lots():BelongsToMany
     {
-        return $this->belongsToMany(Lot::class);
+        return $this->belongsToMany(Lot::class, 'lots_categories');
     }
 }
