@@ -1,12 +1,14 @@
 @extends('layouts.app')
 @section('content')
-    <a href="{{ route('lot.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Create new lot</a>
+    <h2>Lots</h2>
+    <a href="{{ route('lot.create') }}" class="btn btn-outline-warning"><i class="fa fa-plus"></i> Create new lot</a>
     <table class="table table-striped task-table">
         <thead>
         <tr>
-            <th>Name</th>
+            <th>Lot name</th>
             <th>Description</th>
-            <th>Action</th>
+            <th>Delete</th>
+            <th>Edit</th>
         </tr>
         </thead>
         <tbody>
@@ -24,8 +26,8 @@
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
-                            <button type="submit" class="btn btn-danger">
-                                <i class="fa fa-btn fa-trash"></i>Delete
+                            <button type="submit" class="btn btn-outline-danger">
+                                <i class="fa fa-btn fa-trash"></i> Delete
                             </button>
                         </form>
                     </td>
@@ -34,8 +36,8 @@
                             {{ csrf_field() }}
                             {{ method_field('GET') }}
 
-                            <button type="submit" class="btn btn-warning">
-                                <i class="fa fa-btn fa-edit"></i>Edit
+                            <button type="submit" class="btn btn-outline-warning">
+                                <i class="fa fa-btn fa-edit"></i> Edit
                             </button>
                         </form>
                     </td>
