@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h2>New lot</h2>
+    @include('common.errors')
     <form action="{{ route('lot.store') }}" method="POST" class="w3-container">
         {{ csrf_field() }}
 

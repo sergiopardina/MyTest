@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h2>Category edit</h2>
+    @include('common.errors')
     <form action="{{ route('category.update', $category->id) }}" method="POST" class="w3-container">
         {{ csrf_field() }}
         {{ method_field('PUT') }}

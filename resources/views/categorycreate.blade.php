@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <h2>New category</h2>
+    @include('common.errors')
     <form action="{{ route('category.store') }}" method="POST" class="w3-container">
         {{ csrf_field() }}
 
