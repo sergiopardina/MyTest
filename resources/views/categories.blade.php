@@ -1,26 +1,23 @@
 @extends('layouts.app')
 @section('content')
-    <a href="{{ route('lot.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Create new lot</a>
+    <h2>Categories</h2>
+    <a href="{{ route('category.create') }}" class="btn btn-success"><i class="fa fa-plus"></i> Create new category</a>
     <table class="table table-striped task-table">
         <thead>
         <tr>
             <th>Name</th>
-            <th>Description</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        @if (count($lots) > 0)
-            @foreach ($lots as $lot)
+        @if (count($categories) > 0)
+            @foreach ($categories as $category)
                 <tr>
                     <td class="table-text">
-                        <div>{{ $lot->name }}</div>
-                    </td>
-                    <td class="table-text">
-                        <div>{{ $lot->description }}</div>
+                        <div>{{ $category->name }}</div>
                     </td>
                     <td>
-                        <form action="{{ route('lot.destroy', $lot->id) }}" method="POST">
+                        <form action="{{ route('category.destroy', $category->id) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
@@ -30,7 +27,7 @@
                         </form>
                     </td>
                     <td>
-                        <form action="{{ route('lot.edit', $lot->id) }}" method="POST">
+                        <form action="{{ route('category.edit', $category->id) }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('GET') }}
 
@@ -43,7 +40,7 @@
             @endforeach
         @else
             <tr>
-                <td colspan="4">No lots</td>
+                <td colspan="4">No categories</td>
             </tr>
     @endif
 @endsection
