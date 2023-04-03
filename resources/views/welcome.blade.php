@@ -2,6 +2,40 @@
 @section('content')
     <h2>Lots</h2>
     <a href="{{ route('lot.create') }}" class="btn btn-outline-warning"><i class="fa fa-plus"></i> Create new lot</a>
+    <div>
+        <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-warning"><i class="fa fa-bars"></i> Filters</button>
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content w3-padding-16">
+                <div class="w3-container">
+                    <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <h3>Categories</h3>
+                    <form action="{{ route('lot.store') }}" method="POST" class="w3-container">
+                        {{ csrf_field() }}
+
+                        <div class="form-group">
+                            @if (count($categories) > 0)
+                                @foreach ($categories as $category)
+                                    <input type="checkbox" id="{{ $category->id }}" class="w3-check" name="categories[]" value="{{ $category->id }}">
+                                    <label for="{{ $category->id }}"> {{ $category->name }}</label><br>
+                                @endforeach
+                            @else
+                                <tr>
+                                    <td colspan="4">No categories</td>
+                                </tr>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-3 col-sm-6">
+                                <button type="submit" class="w3-button w3-ripple w3-yellow">
+                                    <i class="fa fa-plus"></i> Use filters
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <table class="table table-striped task-table">
         <thead>
         <tr>

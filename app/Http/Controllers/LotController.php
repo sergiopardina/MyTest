@@ -14,11 +14,14 @@ class LotController extends Controller
      */
     public function index()
     {
+        $categories = DB::table('categories')
+            ->get();
         $lots = DB::table('lots')
             ->groupBy('lots.id')
             ->get();
         return view('welcome', [
             'lots' => $lots,
+            'categories' => $categories,
         ]);
     }
 
